@@ -22,9 +22,9 @@ public:
         return sqrt(x * x + y * y + z * z);
     }
 
-    void setX(float v) { x = v; };
-    void setY(float v) { y = v; };
-    void setZ(float v) { z = v; };
+    void setX(float v) { x = v; }
+    void setY(float v) { y = v; }
+    void setZ(float v) { z = v; }
 
     friend Vector operator+(const Vector& a, const Vector& b);
 
@@ -32,17 +32,14 @@ public:
 
     friend bool operator>(const Vector& a, const Vector& b);
 
-    // * Ïåðåçàãðóçêà îïåðàòîðà óìíîæåíèÿ (íà ÷èñëî)
-
+    // * ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° ÑƒÐ¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ñ (Ð½Ð° Ñ‡Ð¸ÑÐ»Ð¾)
     friend Vector operator*(const Vector& a, const float& b);
     friend Vector operator*(const float& a, const Vector& b);
 
-    // * Ïåðåçàãðóçêà îïåðàòîðà ðàçíîñòè (íà âåêòîð)
-
+    // * ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° Ñ€Ð°Ð·Ð½Ð¾ÑÑ‚Ð¸ (Ð½Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€)
     friend Vector operator-(const Vector& a, const Vector& b);
 
-    // * Ïåðåçàãðóçêà îïåðàòîðà ââîäà
-
+    // * ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° Ð²Ð²Ð¾Ð´Ð°
     friend std::istream& operator>>(std::istream& in, const Vector& v);
 
     float operator[](int index)
@@ -82,26 +79,25 @@ std::ostream& operator<<(std::ostream& out, const Vector& v)
     return out;
 }
 
-// * Ïåðåçàãðóçêà îïåðàòîðà óìíîæåíèÿ (íà ÷èñëî)
+// * ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° ÑƒÐ¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ñ (Ð½Ð° Ñ‡Ð¸ÑÐ»Ð¾)
 
 Vector operator*(const Vector& a, const float& b)
 {
     return Vector(a.x * b, a.y * b, a.z * b);
 }
-
 Vector operator*(const float& a, const Vector& b)
 {
     return b * a;
 }
 
-// * Ïåðåçàãðóçêà îïåðàòîðà ðàçíîñòè (íà âåêòîð)
+// * ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° Ñ€Ð°Ð·Ð½Ð¾ÑÑ‚Ð¸ (Ð½Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€)
 
 Vector operator-(const Vector& a, const Vector& b)
 {
     return Vector(a.x - b.x, a.y - b.y, a.z - b.z);
 }
 
-// * Ïåðåçàãðóçêà îïåðàòîðà ââîäà
+// * ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° Ð²Ñ‹Ð²Ð¾Ð´Ð°
 
 std::istream& operator>>(std::istream& in, Vector& v)
 {
@@ -114,7 +110,7 @@ std::istream& operator>>(std::istream& in, Vector& v)
     std::cout << "Z: ";
     in >> z;
        
-    // åñëè ââîä óäà÷íûé, òî ïðèñâàèâàåì
+    // Ð•ÑÐ»Ð¸ Ð²Ð²Ð¾Ð´ Ð²ÐµÑ€ÐµÐ½, Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÑÐµÐ¼ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ
     if (in)
     {
         v.setX(x);
@@ -133,7 +129,6 @@ bool operator>(const Vector& a, const Vector& b)
 int main()
 {
     setlocale(LC_ALL, "rus");
-
     
     Vector v1(0, 1, 2);
     Vector v2(3, 4, 5);
@@ -142,19 +137,19 @@ int main()
     std::cout << v3 << '\n';
     std::cout << "v3 length: " << static_cast<float>(v3) << '\n';
 
-    // * Ïðîâåðêà óìíîæåíèÿ (1)
-    std::wcout << L"Ïðîâåðêà óìíîæåíèÿ:\n";
+    // * ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÑƒÐ¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ñ
+    std::wcout << L"ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÑƒÐ¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ñ:\n";
     std::cout << "v2: " << v2 << '\n';
     std::cout << "v2 * 2: " << v2 * 2.f << '\n';
     std::cout << "2 * v2: " << 2.f * v2 << '\n';
 
-    // * Ïðîâåðêà ðàçíîñòè
-    std::cout << "Ïðîâåðêà ðàçíîñòè:\n";
+    // * ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ñ€Ð°Ð·Ð½Ð¾ÑÑ‚Ð¸
+    std::cout << "ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ñ€Ð°Ð·Ð½Ð¾ÑÑ‚Ð¸:\n";
     std::cout << "v1: " << v1 << '\n';
     std::cout << "v2: " << v2 << '\n';
     std::cout << "v2 - v1: " << v2 - v1 << '\n';
     std::cout << "v1 - v2: " << v1 - v2 << '\n';
-    std::cout << "Ìåíÿåì ïåðåìåííûå:\n";
+    std::cout << "ÐœÐµÐ½ÑÐµÐ¼ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð°:\n";
     v1 = Vector(3, 2, 6);
     v2 = Vector(9, 1, 3);
     std::cout << "v1: " << v1 << '\n';
@@ -162,9 +157,9 @@ int main()
     std::cout << "v2 - v1: " << v2 - v1 << '\n';
     std::cout << "v1 - v2: " << v1 - v2 << '\n';
     
-    // * Ïðîâåðêà ââîäà
-    // ! Ïðè ââîäå ñòðîêè íå ðàáîòàåò
-    std::cout << "Ïðîâåðêà ââîäà:\n";
+    // * ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð²Ð²Ð¾Ð´Ð°
+    // ! Ð•ÑÐ»Ð¸ Ð²Ð²ÐµÑÑ‚Ð¸ ÑÑ‚Ñ€Ð¾ÐºÑƒ/ÑÐ¸Ð¼Ð²Ð¾Ð», Ñ‚Ð¾ Ð²ÐµÐºÑ‚Ð¾Ñ€ Ð½Ðµ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑÑ
+    std::cout << "ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð²Ð²Ð¾Ð´Ð°:\n";
     std::cin >> v3;
     std::cout << v3;
 }

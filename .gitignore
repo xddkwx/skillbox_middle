@@ -71,3 +71,4 @@ packages/
 *.orig
 *.rej
 *.swp
+.idea/
