@@ -10,13 +10,47 @@ public:
         y = 0;
         z = 0;
     }
+
+    explicit Vector(float num) = delete;
+    
     Vector(float x, float y, float z)
     {
+        std::cout<<"Constructor \n";
         this->x = x;
         this->y = y;
         this->z = z;
     }
+    
+    Vector(const Vector& other)
+    {
+        std::cout<<"Copy constructor \n";
+        x = other.x;
+        y = other.y;
+        z = other.z;
+    }
 
+    ~Vector()
+    {
+        std::cout<<"destructor calling\n";
+    }
+
+    Vector& operator=(Vector& other)
+    {
+        std::cout << "operator=\n";
+        x = other.x;
+        y = other.y;
+        z = other.z;
+        // если бы был
+        /*
+         * if (other.Info)
+         * {
+         *      if (Info) delete Info;
+         *      Info = new std::string(*other.Info);
+         * }
+         */
+        return (*this);
+    }
+    
     operator float()
     {
         return sqrt(x * x + y * y + z * z);
@@ -126,40 +160,23 @@ bool operator>(const Vector& a, const Vector& b)
     return false;
 }
 
+// ! Запомнить
+class A
+{
+public:
+    A(int a)
+    {
+         test = a;
+    }
+    A(char a) = delete;
+private:
+    int test;
+};
+
 int main()
 {
     setlocale(LC_ALL, "rus");
-    
-    Vector v1(0, 1, 2);
-    Vector v2(3, 4, 5);
-    Vector v3;
-    v3 = v1 + v2;
-    std::cout << v3 << '\n';
-    std::cout << "v3 length: " << static_cast<float>(v3) << '\n';
-
-    // * Проверка умножения
-    std::wcout << L"Проверка умножения:\n";
-    std::cout << "v2: " << v2 << '\n';
-    std::cout << "v2 * 2: " << v2 * 2.f << '\n';
-    std::cout << "2 * v2: " << 2.f * v2 << '\n';
-
-    // * Проверка разности
-    std::cout << "Проверка разности:\n";
-    std::cout << "v1: " << v1 << '\n';
-    std::cout << "v2: " << v2 << '\n';
-    std::cout << "v2 - v1: " << v2 - v1 << '\n';
-    std::cout << "v1 - v2: " << v1 - v2 << '\n';
-    std::cout << "Меняем переменные вектора:\n";
-    v1 = Vector(3, 2, 6);
-    v2 = Vector(9, 1, 3);
-    std::cout << "v1: " << v1 << '\n';
-    std::cout << "v2: " << v2 << '\n';
-    std::cout << "v2 - v1: " << v2 - v1 << '\n';
-    std::cout << "v1 - v2: " << v1 - v2 << '\n';
-    
-    // * Проверяем оператор ввода
-    // ! Если ввести строку/символ, то вектор не изменится
-    std::cout << "Проверка ввода:\n";
-    std::cin >> v3;
-    std::cout << v3;
+    Vector v1(1,2,3);
+    Vector v2(3,4,5);
+    v2 = v1;
 }
