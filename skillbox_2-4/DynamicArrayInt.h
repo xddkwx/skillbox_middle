@@ -6,8 +6,10 @@
 class DynamicArrayInt
 {
 private:
+    // Массив, его столбцы и строки
     int** array2d;
     int rows, cols;
+    // Дополнительные параметры
     std::string* name;
     float* money;
     char* prefix;

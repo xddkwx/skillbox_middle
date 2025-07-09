@@ -7,12 +7,14 @@ DynamicArrayInt::DynamicArrayInt(
     float money,
     char prefix) : rows(r),cols(c)
 {
+    // Инициализация массива
     array2d = new int*[rows];
     for (int i = 0; i < rows; ++i)
     {
         array2d[i] = new int[cols]();   // ! Инициализация нулями
     }
 
+    // Инициализация остальных параметров
     this->name = new std::string(name);
     this->money = new float(money);
     this->prefix = new char(prefix);
@@ -38,10 +40,13 @@ DynamicArrayInt& DynamicArrayInt::operator=(const DynamicArrayInt& other)
 
 void DynamicArrayInt::printData()
 {
+    // Вывод параметров
     std::cout << "Name: " << *name << '\n';
     std::cout << "Money: " << *money << '\n';
     std::cout << "Prefix: " << *prefix << '\n';
     std::cout << "2D Array [" << rows << "x" << cols << "]\n";
+
+    // Вывод элементов массива
     for (int i = 0; i < rows; ++i)
     {
         for (int j = 0; j < cols; ++j)
@@ -55,7 +60,7 @@ void DynamicArrayInt::printData()
 
 void DynamicArrayInt::setValue(int row, int col, int value)
 {
-    // Проверки
+    // Проверка
     if (row >= 0 && row < rows && col >= 0 && col < cols)
     {
         array2d[row][col] = value;
@@ -80,12 +85,14 @@ void DynamicArrayInt::setPrefix(char value)
 // * Очистка
 void DynamicArrayInt::clear()
 {
+    // Удаление массива
     for (int i = 0; i < rows; ++i)
     {
         delete[] array2d[i];
     }
     delete[] array2d;
 
+    // Удаление остальных параметров
     delete name;
     delete money;
     delete prefix;
