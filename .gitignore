@@ -72,3 +72,6 @@ packages/
 *.rej
 *.swp
 .idea/
+
+#mine
+z_dummy/
