@@ -74,6 +74,11 @@ Car::Car(
         RBWheel(RB),
         CarEngine(E) {}
 
+float Car::getPower() const
+{
+    return CarEngine.getPower();
+}
+
 std::ostream& Car::print(std::ostream& out) const
 {
     out << "\nType: Car"

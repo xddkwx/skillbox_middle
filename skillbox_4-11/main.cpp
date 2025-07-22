@@ -4,6 +4,20 @@
 #include <vector>
 #include <functional>
 
+// * Получения самого большого power в массиве
+float getHighestPower(const std::vector<Vehicle*>& v)
+{
+    float highest = 0.f;
+    for (int i = 0; i < v.size(); ++i)
+    {
+        if (highest < v[i]->getPower())
+        {
+            highest = v[i]->getPower();
+        }
+    }
+    return highest;
+}
+
 int main()
 {
     // * Первая часть
@@ -29,4 +43,5 @@ int main()
         std::cout << *v[i] << '\n';
         std::cout << "------------------";
     }
+    std::cout << "Highest Power in v is " << getHighestPower(v) << '\n';
 }

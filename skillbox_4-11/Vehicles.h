@@ -9,6 +9,7 @@ public:
     virtual ~Vehicle() {}; // виртуальный деструктор
     virtual std::ostream& print(std::ostream& out) const = 0;               // * чистая виртуальная функция
     friend std::ostream& operator<<(std::ostream& out, const Vehicle& v);   // * перегрузка operator<<
+    virtual float getPower() const { return -1.f; };
 };
 /* --------------------------------------- */
 
@@ -72,5 +73,6 @@ public:
         const Wheel& RB,
         float gdClearance
     );
+    float getPower() const override;
     std::ostream& print(std::ostream& out) const override;
 };
