@@ -9,8 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "skillbox_2-4", "skillbox_2-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "skillbox_4-11", "skillbox_4-11\skillbox_4-11.vcxproj", "{308E4953-0211-4C64-A8E9-12F1AF1B850A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "z_learn", "z_learn\z_learn.vcxproj", "{9394A465-C439-414C-8D58-61B5870B0666}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "skillbox_5-10", "skillbox_5-11\skillbox_5-11.vcxproj", "{36E633F4-E284-46AE-818D-41C78358E7F5}"
 EndProject
 Global
@@ -45,14 +43,6 @@ Global
 		{308E4953-0211-4C64-A8E9-12F1AF1B850A}.Release|x64.Build.0 = Release|x64
 		{308E4953-0211-4C64-A8E9-12F1AF1B850A}.Release|x86.ActiveCfg = Release|Win32
 		{308E4953-0211-4C64-A8E9-12F1AF1B850A}.Release|x86.Build.0 = Release|Win32
-		{9394A465-C439-414C-8D58-61B5870B0666}.Debug|x64.ActiveCfg = Debug|x64
-		{9394A465-C439-414C-8D58-61B5870B0666}.Debug|x64.Build.0 = Debug|x64
-		{9394A465-C439-414C-8D58-61B5870B0666}.Debug|x86.ActiveCfg = Debug|Win32
-		{9394A465-C439-414C-8D58-61B5870B0666}.Debug|x86.Build.0 = Debug|Win32
-		{9394A465-C439-414C-8D58-61B5870B0666}.Release|x64.ActiveCfg = Release|x64
-		{9394A465-C439-414C-8D58-61B5870B0666}.Release|x64.Build.0 = Release|x64
-		{9394A465-C439-414C-8D58-61B5870B0666}.Release|x86.ActiveCfg = Release|Win32
-		{9394A465-C439-414C-8D58-61B5870B0666}.Release|x86.Build.0 = Release|Win32
 		{36E633F4-E284-46AE-818D-41C78358E7F5}.Debug|x64.ActiveCfg = Debug|x64
 		{36E633F4-E284-46AE-818D-41C78358E7F5}.Debug|x64.Build.0 = Debug|x64
 		{36E633F4-E284-46AE-818D-41C78358E7F5}.Debug|x86.ActiveCfg = Debug|Win32

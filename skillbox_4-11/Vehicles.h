@@ -40,13 +40,13 @@ class Bicycle : public RoadVehicle
 {
 private:
     // * должен иметь два колеса класса Wheel
-    Wheel forwardWheel;
-    Wheel backwardWheel;
+    const Wheel& forwardWheel;
+    const Wheel& backwardWheel;
 public:
     Bicycle(
-        float gdClearance,
-        float fdWheelDiameter,
-        float bdWheelDiameter
+        const Wheel& front,
+        const Wheel& back,
+        float gdClearance
     );
     std::ostream& print(std::ostream& out) const override;
 };
@@ -57,20 +57,20 @@ class Car : public RoadVehicle
 private:
     // * должен иметь 4 колеса класса Wheel и двигатель класса Engine
     // F - forward
-    Wheel LFWheel;
-    Wheel RFWheel;
+    const Wheel& LFWheel;
+    const Wheel& RFWheel;
     // B - backward
-    Wheel LBWheel;
-    Wheel RBWheel;
-    Engine CarEngine;
+    const Wheel& LBWheel;
+    const Wheel& RBWheel;
+    const Engine& CarEngine;
 public:
     Car(
-        float gdClearance,
-        float LFWDiameter,
-        float RFWDiameter,
-        float LBWDiameter,
-        float RBWDiameter,
-        float Power
+        const Engine& E,
+        const Wheel& LF,
+        const Wheel& RF,
+        const Wheel& LB,
+        const Wheel& RB,
+        float gdClearance
     );
     std::ostream& print(std::ostream& out) const override;
 };

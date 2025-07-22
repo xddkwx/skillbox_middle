@@ -39,10 +39,14 @@ float RoadVehicle::getGroundClearance() const
 /* --------------------------------------- */
 
 // * Bicycle
-Bicycle::Bicycle(float gdClearance, float fdWheelDiameter, float bdWheelDiameter)
-    :   RoadVehicle(gdClearance),
-        forwardWheel(fdWheelDiameter),
-        backwardWheel(bdWheelDiameter) {}
+Bicycle::Bicycle(
+    const Wheel& front,
+    const Wheel& back,
+    float gdClearance
+) :   
+        RoadVehicle(gdClearance),
+        forwardWheel(front),
+        backwardWheel(back) {}
 
 std::ostream& Bicycle::print(std::ostream& out) const
 {
@@ -56,19 +60,19 @@ std::ostream& Bicycle::print(std::ostream& out) const
 
 // * Car
 Car::Car(
-    float gdClearance,
-    float LFWDiameter,
-    float RFWDiameter,
-    float LBWDiameter,
-    float RBWDiameter,
-    float Power
-    )
-    :   RoadVehicle(gdClearance),
-        LFWheel(LFWDiameter),
-        RFWheel(RFWDiameter),
-        LBWheel(LBWDiameter),
-        RBWheel(RBWDiameter),
-        CarEngine(Power) {}
+    const Engine& E,
+    const Wheel& LF,
+    const Wheel& RF,
+    const Wheel& LB,
+    const Wheel& RB,
+    float gdClearance
+) :
+        RoadVehicle(gdClearance),
+        LFWheel(LF),
+        RFWheel(RF),
+        LBWheel(LB),
+        RBWheel(RB),
+        CarEngine(E) {}
 
 std::ostream& Car::print(std::ostream& out) const
 {
